@@ -1,4 +1,3 @@
-import { Logo } from "@/components/logo";
 import { cnMerge } from "@/utils";
 
 export default function Home() {
