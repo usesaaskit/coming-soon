@@ -9,7 +9,6 @@ export default function Home() {
       )}
     >
       <div className="flex justify-center items-center flex-col gap-2 -mt-20">
-        <Logo />
         <h1 className="text-2xl sm:text-5xl font-bold mb-2">Coming Soon</h1>
         <p className="max-w-xl sm:text-lg text-center text-slate-500">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quo

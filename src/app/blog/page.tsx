@@ -50,8 +50,14 @@ export default async function BlogsPage() {
 function BlogCard({ title, slug, description, thumbnailURL }: BlogMetadata) {
   return (
     <Link key={title} href={`/blog/${slug}`} className="border rounded-md">
-      <div className="aspect-[16/9]  bg-slate-200 rounded-t-md ">
-        <Image src={thumbnailURL} alt={title} width={300} height={400} />
+      <div className="aspect-[16/9]  bg-slate-200 rounded-t-md overflow-hidden ">
+        <Image
+          src={thumbnailURL}
+          alt={title}
+          width={300}
+          height={400}
+          className="w-full h-full object-cover"
+        />
       </div>
       <div className="p-4">
         <p className="font-medium mb-1">{title}</p>
