@@ -30,6 +30,11 @@ export default async function BlogsPage() {
     });
   }
 
+  // sort the blog by date
+  blogs.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
   return (
     <div className="container py-20">
       <h1 className="text-3xl font-semibold">Ours Blog</h1>
