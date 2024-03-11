@@ -1,0 +1,19 @@
+import Image from "next/image";
+import Link from "next/link";
+
+export function Logo() {
+  return (
+    <Link href="/">
+      <div className="flex items-center gap-1">
+        <Image
+          src="/logo.png"
+          alt="a logo of usesasskit.com"
+          width={40}
+          height={40}
+          quality={100}
+        />
+        <p className="font-semibold text-base">UseSassKit</p>
+      </div>
+    </Link>
+  );
+}
