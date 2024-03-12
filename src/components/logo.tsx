@@ -12,7 +12,7 @@ export function Logo() {
           height={40}
           quality={100}
         />
-        <p className="font-semibold text-base">UseSassKit</p>
+        <p className="font-semibold text-base">UseSaasKit</p>
       </div>
     </Link>
   );
