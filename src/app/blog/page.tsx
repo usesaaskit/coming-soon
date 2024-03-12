@@ -1,38 +1,10 @@
-import * as fs from "node:fs/promises";
-import { compileMDX } from "next-mdx-remote/rsc";
 import { BlogMetadata } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
-import { BLOG_DIR_LOCATION } from "@/constant";
+import { getBlogPosts } from "@/lib/get-blog-posts";
 
 export default async function BlogsPage() {
-  const files = await fs.readdir(BLOG_DIR_LOCATION);
-
-  // Filter out only directories
-  const directories = await Promise.all(
-    files.filter(async (file) => {
-      const stats = await fs.stat(`${BLOG_DIR_LOCATION}/${file}`);
-      return stats.isDirectory();
-    })
-  );
-
-  let blogs: BlogMetadata[] = [];
-  for (let dir of directories) {
-    const source = await fs.readFile(`${BLOG_DIR_LOCATION}/${dir}/index.mdx`);
-    const { frontmatter } = await compileMDX<BlogMetadata>({
-      source: source,
-      options: { parseFrontmatter: true },
-    });
-    blogs.push({
-      ...frontmatter,
-      slug: dir,
-    });
-  }
-
-  // sort the blog by date
-  blogs.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+  const blogs = await getBlogPosts();
 
   return (
     <div className="container py-20">
