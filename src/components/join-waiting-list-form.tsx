@@ -22,7 +22,7 @@ export function JoinWaitingListForm() {
 
     try {
       setFormStatus("loading");
-      await createNewSubscription(email as string);
+      await createNewSubscription(email!);
       setFormStatus("success");
     } catch (error) {
       setFormStatus("error");
@@ -43,17 +43,17 @@ export function JoinWaitingListForm() {
         <input
           type="email"
           placeholder="your@email.com"
-          className="flex-1 px-3 py-2 rounded-md border"
+          className="flex-1 px-3 py-2 rounded-md border outline-none focus:border-primary"
           name="email"
         />
         <button
           type="submit"
-          className="px-6 py-2 rounded-md bg-slate-950 text-slate-50 text-sm font-semibold"
+          className="px-6 py-2 rounded-md bg-primary text-slate-50 text-sm font-semibold"
         >
           {formStatus === "loading" ? "Joining..." : "Join Waiting List"}
         </button>
       </div>
-      <p className="mt-1 text-red-500">{eamilValidationMessage}</p>
+      <p className="text-left mt-1 text-red-500">{eamilValidationMessage}</p>
     </form>
   );
 }
