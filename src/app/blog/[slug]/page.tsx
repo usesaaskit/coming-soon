@@ -1,5 +1,5 @@
 import path from "path";
-import * as fs from "node:fs/promises";
+import * as fs from "node:fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { Code } from "bright";
 
@@ -17,7 +17,7 @@ export default async function SingleBlogPage({
 
   try {
     const blogPath = path.join(BLOG_DIR_LOCATION, `/${slug}/index.mdx`);
-    source = await fs.readFile(blogPath);
+    source = fs.readFileSync(blogPath);
   } catch (error) {
     console.error(error);
     return (
