@@ -12,6 +12,9 @@ const config: Config = {
         center: true,
         padding: "1rem",
       },
+      colors: {
+        primary: "hsl(224 76% 48%)",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

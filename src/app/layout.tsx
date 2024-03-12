@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/tailwind.css";
 import { cnMerge } from "@/utils";
 import { Navigation } from "@/components/navigation";
+import { CRONBOT_APP_URL } from "@/config/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,12 @@ export default function RootLayout({
       <body className={cnMerge(inter.className)}>
         <Navigation />
         {children}
+        <script async src={CRONBOT_APP_URL}></script>
+        <script
+          defer
+          data-domain="usesaaskit.com"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </body>
     </html>
   );

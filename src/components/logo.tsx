@@ -10,7 +10,6 @@ export function Logo() {
           alt="a logo of usesasskit.com"
           width={40}
           height={40}
-          quality={100}
         />
         <p className="font-semibold text-base">UseSaasKit</p>
       </div>
