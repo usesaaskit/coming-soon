@@ -4,6 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { Code } from "bright";
 
 import { BlogMetadata } from "@/types";
+import { BLOG_DIR_LOCATION } from "@/constant";
 
 interface SingleBlogPageProps {
   params: { slug: string };
@@ -15,10 +16,7 @@ export default async function SingleBlogPage({
   let source: Buffer | null = null;
 
   try {
-    const blogPath = path.join(
-      process.cwd(),
-      `/src/content/blog/${slug}/index.mdx`
-    );
+    const blogPath = path.join(BLOG_DIR_LOCATION, `/${slug}/index.mdx`);
     source = await fs.readFile(blogPath);
   } catch (error) {
     console.error(error);

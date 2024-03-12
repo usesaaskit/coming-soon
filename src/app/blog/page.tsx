@@ -1,25 +1,24 @@
-import path from "path";
 import * as fs from "node:fs/promises";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { BlogMetadata } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import { BLOG_DIR_LOCATION } from "@/constant";
 
 export default async function BlogsPage() {
-  const blogPath = path.join(process.cwd(), "/src/content/blog");
-  const files = await fs.readdir(blogPath);
+  const files = await fs.readdir(BLOG_DIR_LOCATION);
 
   // Filter out only directories
   const directories = await Promise.all(
     files.filter(async (file) => {
-      const stats = await fs.stat(`${blogPath}/${file}`);
+      const stats = await fs.stat(`${BLOG_DIR_LOCATION}/${file}`);
       return stats.isDirectory();
     })
   );
 
   let blogs: BlogMetadata[] = [];
   for (let dir of directories) {
-    const source = await fs.readFile(`${blogPath}/${dir}/index.mdx`);
+    const source = await fs.readFile(`${BLOG_DIR_LOCATION}/${dir}/index.mdx`);
     const { frontmatter } = await compileMDX<BlogMetadata>({
       source: source,
       options: { parseFrontmatter: true },
@@ -39,9 +38,11 @@ export default async function BlogsPage() {
     <div className="container py-20">
       <h1 className="text-3xl font-semibold">Ours Blog</h1>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-        {blogs.map((blog) => (
-          <BlogCard key={blog.title} {...blog} />
-        ))}
+        {blogs.length > 0 ? (
+          blogs.map((blog) => <BlogCard key={blog.title} {...blog} />)
+        ) : (
+          <div>Work in progress</div>
+        )}
       </div>
     </div>
   );
