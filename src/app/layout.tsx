@@ -7,7 +7,8 @@ import { Navigation } from "@/components/navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "UseSassKit: Coming Soon",
+  title: "UseSaasKit: Fastest way to launch your Saas",
+  description: "Build your startup in a week not in a month.",
 };
 
 export default function RootLayout({

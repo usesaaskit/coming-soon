@@ -29,6 +29,12 @@ export default function Home() {
         </ul>
 
         <JoinWaitingListForm />
+        <p className="mt-2 max-w-lg">
+          First 100 customers who join the waitlist will receive
+          <span className="font-semibold"> 50% Early Bird discount</span> when
+          we launch the{" "}
+          <span className="text-blue-500 font-semibold">MVP Kit</span>.
+        </p>
       </div>
     </main>
   );

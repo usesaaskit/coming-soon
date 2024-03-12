@@ -38,28 +38,22 @@ export function JoinWaitingListForm() {
   }
 
   return (
-    <div className="max-w-lg">
-      <form noValidate action={onFormAction}>
-        <div className="flex flex-col sm:flex-row gap-2 ">
-          <input
-            type="email"
-            placeholder="your@email.com"
-            className="flex-1 px-3 py-2 rounded-md border"
-            name="email"
-          />
-          <button
-            type="submit"
-            className="px-6 py-2 rounded-md bg-slate-950 text-slate-50 text-sm"
-          >
-            {formStatus === "loading" ? "Joining..." : "Join Waiting List"}
-          </button>
-        </div>
-        <p className="mt-1 text-red-500">{eamilValidationMessage}</p>
-      </form>
-      <p className="mt-2">
-        The first 100 customers who join the waitlist will receive a 50%
-        discount as Early Birds when we launch the MVP Kit.
-      </p>
-    </div>
+    <form noValidate action={onFormAction} className="max-w-lg w-full">
+      <div className="flex flex-col sm:flex-row gap-2 ">
+        <input
+          type="email"
+          placeholder="your@email.com"
+          className="flex-1 px-3 py-2 rounded-md border"
+          name="email"
+        />
+        <button
+          type="submit"
+          className="px-6 py-2 rounded-md bg-slate-950 text-slate-50 text-sm font-semibold"
+        >
+          {formStatus === "loading" ? "Joining..." : "Join Waiting List"}
+        </button>
+      </div>
+      <p className="mt-1 text-red-500">{eamilValidationMessage}</p>
+    </form>
   );
 }
