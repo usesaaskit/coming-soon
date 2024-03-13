@@ -2,7 +2,7 @@ import { getBlogPosts } from "@/lib/get-blog-posts";
 
 export default async function sitemap() {
   const blogs = (await getBlogPosts()).map((post) => ({
-    url: `https://www.usesaaskit.com//blog/${post.slug}`,
+    url: `https://www.usesaaskit.com/blog/${post.slug}`,
     lastModified: post.date,
   }));
 
