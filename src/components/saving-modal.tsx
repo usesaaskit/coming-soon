@@ -92,13 +92,13 @@ function SavingTable() {
             scope="col"
             className="px-4 py-3.5 text-left text-sm font-semibold text-slate-900"
           >
-            Time Required to Build by Yourself
+            Build by yourself
           </th>
           <th
             scope="col"
             className="px-4 py-3.5 text-left text-sm font-semibold text-slate-900"
           >
-            Time Required to Build Using MVP-Kit
+            Build using MVP-Kit
           </th>
         </tr>
       </thead>

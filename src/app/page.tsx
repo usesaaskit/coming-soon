@@ -2,7 +2,6 @@ import { Badge } from "@/components/badge";
 import { JoinWaitingListForm } from "@/components/join-waiting-list-form";
 import { cnMerge } from "@/utils";
 import { FEATURES } from "@/constant";
-import Link from "next/link";
 import { SavingModal } from "@/components/saving-modal";
 
 interface HomeProps {
@@ -37,12 +36,7 @@ export default function Home({ searchParams }: HomeProps) {
         </ul>
 
         <JoinWaitingListForm />
-        <Link
-          href="?saving-modal=true"
-          className="inline-block max-w-lg text-left w-full underline text-sm -mt-2"
-        >
-          How many days will I save if I purchase MVP-Kit?
-        </Link>
+
         <p className="mt-2 max-w-lg">
           First 100 customers who join the waitlist will receive
           <span className="font-semibold"> 50% Early Bird discount</span> when

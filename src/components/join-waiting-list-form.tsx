@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { createNewSubscription } from "@/lib/create-new-subscription";
 import { validateEmail } from "@/utils";
 import { useState } from "react";
@@ -38,22 +39,30 @@ export function JoinWaitingListForm() {
   }
 
   return (
-    <form noValidate action={onFormAction} className="max-w-lg w-full">
-      <div className="flex flex-col sm:flex-row gap-2 ">
-        <input
-          type="email"
-          placeholder="your@email.com"
-          className="flex-1 px-3 py-2 rounded-md border outline-none focus:border-primary"
-          name="email"
-        />
-        <button
-          type="submit"
-          className="px-6 py-2 rounded-md bg-primary text-slate-50 text-sm font-semibold"
-        >
-          {formStatus === "loading" ? "Joining..." : "Join Waiting List"}
-        </button>
-      </div>
-      <p className="text-left mt-1 text-red-500">{eamilValidationMessage}</p>
-    </form>
+    <>
+      <form noValidate action={onFormAction} className="max-w-lg w-full">
+        <div className="flex flex-col sm:flex-row gap-2 ">
+          <input
+            type="email"
+            placeholder="your@email.com"
+            className="flex-1 px-3 py-2 rounded-md border outline-none focus:border-primary"
+            name="email"
+          />
+          <button
+            type="submit"
+            className="px-6 py-2 rounded-md bg-primary text-slate-50 text-sm font-semibold"
+          >
+            {formStatus === "loading" ? "Joining..." : "Join Waiting List"}
+          </button>
+        </div>
+        <p className="text-left mt-1 text-red-500">{eamilValidationMessage}</p>
+      </form>
+      <Link
+        href="?saving-modal=true"
+        className="inline-block max-w-lg text-left w-full underline text-sm -mt-2"
+      >
+        How many days will I save if I purchase MVP-Kit?
+      </Link>
+    </>
   );
 }
