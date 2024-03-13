@@ -51,7 +51,7 @@ const list = [
 export function SavingModal() {
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-slate-950/20 flex justify-center items-center sm:p-4">
-      <div className="bg-white  w-full sm:max-w-2xl h-full sm:h-[90vh] rounded-md relative flex flex-col">
+      <div className="bg-white  w-full sm:max-w-2xl h-full sm:h-[90vh] sm:max-h-[700px] rounded-md relative flex flex-col">
         <div className="px-3 py-4 border-b flex justify-between items-center">
           <p className="font-semibold">
             How many days will I save if I purchase MVP-Kit?
@@ -61,7 +61,7 @@ export function SavingModal() {
           </Link>
         </div>
 
-        <div className="overflow-y-auto flex-1">
+        <div className="overflow-y-auto flex-1 ">
           <SavingTable />
         </div>
 
