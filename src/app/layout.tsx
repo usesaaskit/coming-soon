@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/tailwind.css";
 import { cnMerge } from "@/utils";
 import { Navigation } from "@/components/navigation";
-import { CRONBOT_APP_URL } from "@/config/server";
+import { CRONBOT_APP_URL, TWITTER_EVENT_ID } from "@/config/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,6 +43,15 @@ export default function RootLayout({
           defer
           data-domain="usesaaskit.com"
           src="https://plausible.io/js/script.js"
+        ></script>
+
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: ` // Insert Twitter Event ID
+          twq('event', ${TWITTER_EVENT_ID}, {
+          });`,
+          }}
         ></script>
       </body>
     </html>
