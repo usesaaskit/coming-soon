@@ -2,6 +2,8 @@ import * as fs from "node:fs";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { BlogMetadata } from "@/types";
 import { BLOG_DIR_LOCATION } from "@/constant";
+import path from "node:path";
+import { Code } from "bright";
 
 export async function getBlogPosts() {
   const files = fs.readdirSync(BLOG_DIR_LOCATION);
