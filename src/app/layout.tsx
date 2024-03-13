@@ -8,8 +8,24 @@ import { CRONBOT_APP_URL } from "@/config/server";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "UseSaasKit: Fastest way to launch your Saas",
-  description: "Build your startup in a week not in a month.",
+  metadataBase: new URL("https://usesaaskit.com"),
+  title: {
+    default: "UseSaasKit: Fastest way to launch your Saas",
+    template: "%s | UseSaasKit",
+  },
+  openGraph: {
+    title: "UseSaasKit: Fastest way to launch your Saas",
+    description:
+      "MVP Kit pre-configured with Next.js, Supabase, Lemon Squeezy, and Tailwind CSS. Build your startup in a week, not in a month.",
+    url: "https://usesaaskit.com",
+    siteName: "UseSaasKit",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    title: "UseSaasKit: Fastest way to launch your Saas",
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
