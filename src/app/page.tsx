@@ -40,7 +40,7 @@ export default function Home({ searchParams }: HomeProps) {
         <JoinWaitingListForm />
 
         <p className="mt-2 max-w-lg">
-          First 100 customers who join the waitlist will receive
+          First 100 users who join the waitlist will receive
           <span className="font-semibold"> 50% Early Bird discount</span> when
           we launch the{" "}
           <span className="text-primary font-semibold">MVP Kit</span>.
