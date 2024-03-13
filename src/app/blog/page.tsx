@@ -8,7 +8,7 @@ export default async function BlogsPage() {
 
   return (
     <div className="container py-20">
-      <h1 className="text-3xl font-semibold">Ours Blog</h1>
+      <h1 className="text-3xl font-semibold">Our Blogs</h1>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {blogs.length > 0 ? (
           blogs.map((blog) => <BlogCard key={blog.title} {...blog} />)
